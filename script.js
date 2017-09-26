@@ -1,5 +1,3 @@
-// v4: var todoList now stores objects, not simple text items; updated methods accordingly; added toggleCompleted
-
 var todoList = {
   todos: [
       {todoText: "take out the trash", completed: false},
@@ -7,7 +5,14 @@ var todoList = {
       {todoText: "make a list", completed: true}
     ],
   displayTodos: function() {
-    console.log('My Todos: ', this.todos);
+    // console.table(this.todos);
+    this.todos.length === 0 ? console.log("Your todo list is empty!") :
+      console.log("My Todos: ");
+      for (var i=0; i < this.todos.length; i++) {
+        // console.log(this.todos[i].todoText);
+        this.todos[i].completed === true ? console.log('(x) ' + this.todos[i].todoText) :
+        console.log('( ) ' + this.todos[i].todoText);
+      }
   },
   addTodo: function(todoTextValue) {
     this.todos.push({
