@@ -1,3 +1,5 @@
+// v6 creates a toggleAll method
+
 var todoList = {
   todos: [
       {todoText: "take out the trash", completed: false},
@@ -33,5 +35,25 @@ var todoList = {
     var todo = this.todos[index-1];
     todo.completed = !todo.completed;
     this.displayTodos();
+  },
+  toggleAll: function() {
+    var totalTodos = this.todos.length;
+    var completedTodos = 0;
+    for (var i=0, l=totalTodos; i<l; i++) {
+      if(this.todos[i].completed === true) {
+        completedTodos++;
+      }
+    }
+    if (totalTodos === completedTodos) {
+      for (var i=0, l=totalTodos; i<l; i++) {
+        this.todos[i].completed = false;
+      }
+    } else {
+        for (var i=0, l=totalTodos; i<l; i++) {
+          this.todos[i].completed = true;
+        }
+      }
+    this.displayTodos();
   }
+    //new function
 }
