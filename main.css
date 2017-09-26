@@ -2,3 +2,21 @@
   font-family: 'Raleway', sans-serif;
   border: 1px solid black;
 }
+
+body {
+  background-image: url('http://www.freeppt.net/template/sky-clouds-ppt-background.jpg');
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+aside {
+  flex: 1;
+}
+
+section {
+  flex: 5;
+}
