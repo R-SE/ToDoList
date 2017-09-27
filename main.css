@@ -7,6 +7,12 @@ body {
   background-image: url('http://www.freeppt.net/template/sky-clouds-ppt-background.jpg');
 }
 
+h1 {
+  font-family: 'Poiret One', cursive;
+  font-size: 3em;
+  text-align: center;
+}
+
 main {
   display: flex;
   flex-direction: row;
@@ -15,8 +21,14 @@ main {
 
 aside {
   flex: 1;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: justify;
 }
 
-section {
+#app {
   flex: 5;
+  justify-content: space-around;
+  align-self: center;
 }

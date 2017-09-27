@@ -1,4 +1,4 @@
-// v6 creates a toggleAll method
+// v7 improves user experience, adding buttons to the app instead of relying on user input into console, but outputs still to console
 
 var todoList = {
   todos: [
@@ -55,5 +55,15 @@ var todoList = {
       }
     this.displayTodos();
   }
-    //new function
+    //add new functions here
 }
+
+var displayTodosButton = document.getElementById('displayTodos');
+displayTodosButton.addEventListener('click', function() {
+  todoList.displayTodos();
+});
+
+var toggleAllButton = document.getElementById('toggleAll');
+toggleAll.addEventListener('click', function() {
+  todoList.toggleAll();
+});
