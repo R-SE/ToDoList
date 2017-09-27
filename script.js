@@ -1,4 +1,4 @@
-// v7 improves user experience, adding buttons to the app instead of relying on user input into console, but outputs still to console
+// v8 all methods now have a button to issue commands, but still input to console
 
 var todoList = {
   todos: [
