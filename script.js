@@ -1,40 +1,27 @@
-// v7 improves user experience, adding buttons to the app instead of relying on user input into console, but outputs still to console
+// v9 complete escape from the console!
 
+// MAIN TODO OBJECT
 var todoList = {
   todos: [
       {todoText: "take out the trash", completed: false},
       {todoText: "wash the dishes", completed: false},
       {todoText: "make a list", completed: true}
     ],
-  displayTodos: function() {
-    // console.table(this.todos);
-    this.todos.length === 0 ? console.log("Your todo list is empty!") :
-      console.log("My Todos: ");
-      for (var i=0; i < this.todos.length; i++) {
-        // console.log(this.todos[i].todoText);
-        this.todos[i].completed === true ? console.log('(x) ' + this.todos[i].todoText) :
-        console.log('( ) ' + this.todos[i].todoText);
-      }
-  },
   addTodo: function(todoTextValue) {
     this.todos.push({
       todoText: todoTextValue,
       completed: false,
     });
-    this.displayTodos();
   },
   changeTodo: function(index, newTodoText) {
     this.todos[index-1].todoText = newTodoText;
-    this.displayTodos();
   },
   deleteTodo: function(index) {
     this.todos.splice(index-1, 1);
-    this.displayTodos();
   },
   toggleCompleted: function(index) {
     var todo = this.todos[index-1];
     todo.completed = !todo.completed;
-    this.displayTodos();
   },
   toggleAll: function() {
     var totalTodos = this.todos.length;
@@ -53,7 +40,6 @@ var todoList = {
           this.todos[i].completed = true;
         }
       }
-    this.displayTodos();
   }
 }
 
@@ -67,14 +53,13 @@ var todoList = {
 //   todoList.toggleAll();
 // });
 
+// HANDLER FUNCTIONS
 var handlers = {
-  displayTodos: function() {
-    todoList.displayTodos();
-  },
   addTodo: function() {
     var addTodoTextInput = document.getElementById('addTodoTextInput');
     todoList.addTodo(addTodoTextInput.value);
     addTodoTextInput.value = '';
+    view.displayTodos();
   },
   changeTodo: function() {
     var changeTodoIndexInput = document.getElementById('changeTodoIndexInput');
@@ -82,19 +67,47 @@ var handlers = {
     todoList.changeTodo(changeTodoIndexInput.valueAsNumber, changeTodoTextInput.value);
     changeTodoTextInput.value = '';
     changeTodoIndexInput.value = '';
+    view.displayTodos();
   },
   deleteTodo: function() {
     var deleteTodoIndexInput = document.getElementById('deleteTodoIndexInput');
     todoList.deleteTodo(deleteTodoIndexInput.valueAsNumber);
     deleteTodoIndexInput.value = '';
+    view.displayTodos();
   },
   toggleCompleted: function() {
     var toggleCompletedIndexInput = document.getElementById('toggleCompletedIndexInput');
     todoList.toggleCompleted(toggleCompletedIndexInput.valueAsNumber);
     toggleCompletedIndexInput.value = '';
+    view.displayTodos();
   },
   toggleAll: function() {
     todoList.toggleAll();
+    view.displayTodos();
   }
   //add new functions here
+}
+
+// VIEWPORT FOR APP
+var view = {
+  displayTodos: function() {
+    var todosUl = document.querySelector('ul');
+    todosUl.innerHTML = '';
+    for (var i=0; i<todoList.todos.length; i++) {
+      var todoLi = document.createElement('li');
+      var todoItem = todoList.todos[i];
+      // var todoTextWithCompletion = '';
+      // if (todoItem.completed === true) {
+      //   todoTextWithCompletion = '(x)' + todoItem.todoText;
+      // } else {
+      //   todoTextWithCompletion = '( )' + todoItem.todoText;
+      // };
+      // todoLi.textContent = todoTextWithCompletion;
+// REFACTORED IF/ELSE & EXTRA VARIABLE IN EXCHANGE FOR A TERNARY OPERATOR THAT RETURNS EXPRESSION BELOW
+      todoLi.textContent = todoItem.completed === true ? '(x) ' + todoItem.todoText : '( ) ' + todoItem.todoText;
+      todosUl.appendChild(todoLi);
+
+
+    }
+  }
 }

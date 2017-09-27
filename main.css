@@ -27,8 +27,12 @@ aside {
   text-align: justify;
 }
 
-#app {
+#list {
   flex: 5;
+}
+
+#app {
+  flex: auto;
   justify-content: space-around;
   align-self: center;
 }
