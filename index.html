@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Todo or Not Todo v7</title>
+    <title>Todo or Not Todo v8</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rose">
@@ -18,12 +18,31 @@
     <main>
   <!-- tangential info about the app -->
       <aside>
-        <p> This is version 7 of the todo list! We've added buttons linked to object functions, but it still inputs to console for now :)</p>
+        <p> This is version 8 of the todo list! We are refactoring our code!</p>
       </aside>
   <!-- ACTUAL APP HERE -->
       <section id="app">
-        <button id="displayTodos">Display Todos</button>
-        <button id="toggleAll">Toggle All</button>
+        <div>
+          <button onclick='handlers.displayTodos()'>Display Todos</button>
+          <button onclick='handlers.toggleAll()'>Toggle All</button>
+        </div>
+        <div>
+          <input id="addTodoTextInput" placeholder="Add an item here!"></input>
+          <button onclick='handlers.addTodo()'>Add Todo</button>
+        </div>
+        <div>
+          <input id="changeTodoIndexInput" placeholder="item number" type="number"></input>
+          <input id="changeTodoTextInput" placeholder="new text" type="text"></input>
+          <button onclick='handlers.changeTodo()'>Change Todo</button>
+        </div>
+        <div>
+          <input id="deleteTodoIndexInput" placeholder="item number" type="number"></input>
+          <button onclick="handlers.deleteTodo()">Delete Todo</button>
+        </div>
+        <div>
+          <input id="toggleCompletedIndexInput" placeholder="item number" type="number"></input>
+          <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
+        </div>
       </section>
     </main>
   <!-- info about this project & github repo -->
