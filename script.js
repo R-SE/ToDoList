@@ -89,7 +89,7 @@ var view = {
     todoList.todos.forEach(function(todo, position) {
       var todoLi = document.createElement('li');
       todoLi.id = position;
-      todoLi.textContent = todo.completed === true ? '(x) ' + todo.todoText : '( ) ' + todo.todoText;
+      todoLi.textContent = todo.completed === true ? '✔️ ' + todo.todoText : '☐ ' + todo.todoText;
       todoLi.appendChild(this.createDeleteButton());
       todoLi.appendChild(this.createToggleButton());
       todosUl.appendChild(todoLi);

@@ -35,6 +35,14 @@ aside {
   float: right;
 }
 
-#list li:nth-child(odd){
+#list ul {
+  list-style: none;
+}
+
+#list li {
+  padding: 3px;
+}
+
+#list li:nth-child(even){
   background-color: #00ffb8;
 }
