@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Todo or Not Todo v10</title>
+    <title>Todo or Not Todo v11</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rose">
@@ -18,21 +18,21 @@
     <main>
   <!-- tangential info about the app -->
       <aside>
-        <p> This is version 10 of the todo list! We're making delete buttons for each element. </p>
+        <p> This is version 11 of the todo list! DESTROY ALL LOOPS! </p>
       </aside>
   <!-- ACTUAL APP HERE -->
-      <section id="list">
-        <ul>
-        </ul>
+      <section id="center">
+        <div>
+          <input id="addTodoTextInput" placeholder="Add an item here!" size="70" autofocus></input>
+          <button onclick='handlers.addTodo()'>Add</button>
+        </div>
+        <button onclick='handlers.toggleAll()'>Toggle All</button>
+        <section id="list">
+          <ul>
+          </ul>
+        </section>
       </section>
       <section id="app">
-        <div>
-          <button onclick='handlers.toggleAll()'>Toggle All</button>
-        </div>
-        <div>
-          <input id="addTodoTextInput" placeholder="Add an item here!"></input>
-          <button onclick='handlers.addTodo()'>Add Todo</button>
-        </div>
         <div>
           <input id="changeTodoIndexInput" placeholder="item number" type="number"></input>
           <input id="changeTodoTextInput" placeholder="new text" type="text"></input>

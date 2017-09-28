@@ -1,4 +1,4 @@
-// v10, delete button next to each item wired to deleteTodo method
+// v11, all for loops replaced with forEach method
 
 // MAIN TODO OBJECT
 var todoList = {
@@ -20,26 +20,23 @@ var todoList = {
     this.todos.splice(index, 1);
   },
   toggleCompleted: function(index) {
-    var todo = this.todos[index-1];
+    var todo = this.todos[index];
     todo.completed = !todo.completed;
   },
   toggleAll: function() {
     var totalTodos = this.todos.length;
     var completedTodos = 0;
-    for (var i=0, l=totalTodos; i<l; i++) {
-      if(this.todos[i].completed === true) {
+
+    this.todos.forEach(function(todo) {
+      if (todo.completed === true) {
         completedTodos++;
       }
-    }
-    if (totalTodos === completedTodos) {
-      for (var i=0, l=totalTodos; i<l; i++) {
-        this.todos[i].completed = false;
-      }
-    } else {
-        for (var i=0, l=totalTodos; i<l; i++) {
-          this.todos[i].completed = true;
-        }
-      }
+    });
+
+    this.todos.forEach(function(todo) {
+      todo.completed = completedTodos === totalTodos ? false : true
+    })
+
   }
 }
 
@@ -91,26 +88,17 @@ var view = {
   displayTodos: function() {
     var todosUl = document.querySelector('ul');
     todosUl.innerHTML = '';
-    for (var i=0; i<todoList.todos.length; i++) {
+    todoList.todos.forEach(function(todo, position) {
       var todoLi = document.createElement('li');
-      var todoItem = todoList.todos[i];
-      // var todoTextWithCompletion = '';
-      // if (todoItem.completed === true) {
-      //   todoTextWithCompletion = '(x)' + todoItem.todoText;
-      // } else {
-      //   todoTextWithCompletion = '( )' + todoItem.todoText;
-      // };
-      // todoLi.textContent = todoTextWithCompletion;
-// REFACTORED IF/ELSE & EXTRA VARIABLE IN EXCHANGE FOR A TERNARY OPERATOR THAT RETURNS EXPRESSION BELOW
-      todoLi.id = i;
-      todoLi.textContent = todoItem.completed === true ? '(x) ' + todoItem.todoText : '( ) ' + todoItem.todoText;
+      todoLi.id = position;
+      todoLi.textContent = todo.completed === true ? '(x) ' + todo.todoText : '( ) ' + todo.todoText;
       todoLi.appendChild(this.createDeleteButton());
       todosUl.appendChild(todoLi);
-    }
+    }, this);
   },
   createDeleteButton: function() {
     var deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
+    deleteButton.textContent = 'X';
     deleteButton.className = 'deleteButton';
     return deleteButton;
   },

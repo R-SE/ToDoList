@@ -27,8 +27,11 @@ aside {
   text-align: justify;
 }
 
-#list {
+#center {
   flex: 5;
+}
+
+#list {
 }
 
 #app {
