@@ -1,4 +1,4 @@
-// v9 complete escape from the console!
+// v10, delete button next to each item wired to deleteTodo method
 
 // MAIN TODO OBJECT
 var todoList = {
@@ -14,10 +14,10 @@ var todoList = {
     });
   },
   changeTodo: function(index, newTodoText) {
-    this.todos[index-1].todoText = newTodoText;
+    this.todos[index].todoText = newTodoText;
   },
   deleteTodo: function(index) {
-    this.todos.splice(index-1, 1);
+    this.todos.splice(index, 1);
   },
   toggleCompleted: function(index) {
     var todo = this.todos[index-1];
@@ -104,10 +104,21 @@ var view = {
       // };
       // todoLi.textContent = todoTextWithCompletion;
 // REFACTORED IF/ELSE & EXTRA VARIABLE IN EXCHANGE FOR A TERNARY OPERATOR THAT RETURNS EXPRESSION BELOW
+      todoLi.id = i;
       todoLi.textContent = todoItem.completed === true ? '(x) ' + todoItem.todoText : '( ) ' + todoItem.todoText;
+      todoLi.appendChild(this.createDeleteButton());
       todosUl.appendChild(todoLi);
-
-
     }
+  },
+  createDeleteButton: function() {
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'deleteButton';
+    return deleteButton;
   }
 }
+
+var todosUl = document.querySelector('ul');
+todosUl.addEventListener('click', function(event){
+  console.log(event.target.parentNode.id);
+});
