@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Todo or Not Todo v11</title>
+    <title>Todo or Not Todo v12</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rose">
@@ -18,7 +18,7 @@
     <main>
   <!-- tangential info about the app -->
       <aside>
-        <p> This is version 11 of the todo list! DESTROY ALL LOOPS! </p>
+        <p> This is version 12 of the todo list! Making my own changes! </p>
       </aside>
   <!-- ACTUAL APP HERE -->
       <section id="center">
@@ -28,6 +28,7 @@
         </div>
         <button onclick='handlers.toggleAll()'>Toggle All</button>
         <section id="list">
+          <h2>My List</h2>
           <ul>
           </ul>
         </section>
@@ -37,10 +38,6 @@
           <input id="changeTodoIndexInput" placeholder="item number" type="number"></input>
           <input id="changeTodoTextInput" placeholder="new text" type="text"></input>
           <button onclick='handlers.changeTodo()'>Change Todo</button>
-        </div>
-        <div>
-          <input id="toggleCompletedIndexInput" placeholder="item number" type="number"></input>
-          <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
         </div>
       </section>
     </main>
