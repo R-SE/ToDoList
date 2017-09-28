@@ -103,7 +103,7 @@ var view = {
   },
   createToggleButton: function() {
       var toggleButton = document.createElement('button');
-      toggleButton.textContent = 'Toggle';
+      toggleButton.textContent = 'Mark';
       toggleButton.className = 'toggleButton'
       return toggleButton;
   },

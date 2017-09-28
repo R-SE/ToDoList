@@ -31,7 +31,8 @@ aside {
   flex: 5;
 }
 
-#list {
+#list button {
+  float: right;
 }
 
 #app {
