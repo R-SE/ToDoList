@@ -35,8 +35,6 @@ aside {
   float: right;
 }
 
-#app {
-  flex: auto;
-  justify-content: space-around;
-  align-self: center;
+#list li:nth-child(odd){
+  background-color: #00ffb8;
 }

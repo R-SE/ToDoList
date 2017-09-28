@@ -23,17 +23,15 @@
   <!-- ACTUAL APP HERE -->
       <section id="center">
         <div>
-          <input id="addTodoTextInput" placeholder="Add an item here!" size="70" autofocus></input>
-          <button onclick='handlers.addTodo()'>Add</button>
         </div>
-        <button onclick='handlers.toggleAll()'>Toggle All</button>
         <section id="list">
+          <button onclick='handlers.toggleAll()'>Mark All</button>
           <h2>My List</h2>
+          <input id="addTodoTextInput" placeholder="Add an item here!" size="80" autofocus></input>
+          <button id="addTodoButton" onclick='handlers.addTodo()'>Add</button>
           <ul>
           </ul>
         </section>
-      </section>
-      <section id="app">
         <div>
           <input id="changeTodoIndexInput" placeholder="item number" type="number"></input>
           <input id="changeTodoTextInput" placeholder="new text" type="text"></input>

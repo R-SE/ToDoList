@@ -117,8 +117,18 @@ var view = {
         handlers.toggleCompleted(parseInt(elementClicked.parentNode.id));
       }
     });
-  }
+  },
+  // enterToSubmit: function() {
+  //   var inputSubmit = document.getElementById(addTodoTextInput);
+  //   inputSubmit.addEventListener("keyup", function(event) {
+  //     event.preventDefault();
+  //     if (event.keyCode == 13) {
+  //       document.getElementById(addTodoButton).click();
+  //     }
+  //   })
+  // }
 }
 
 view.setUpEventListeners();
 view.displayTodos();
+// view.enterToSubmit(); TRYING TO WRITE A FUNCTION TO EXECUTE addTodo(); upon hitting enter
